@@ -20,11 +20,11 @@ render(){
   return (
     <div className="App">
       <Router>
-        <Link to='/login'>Login</Link>
-        <Link to='/friends-list'>Friends List</Link>
-        <Link to='/update-friend'>Update Friend</Link>
-        <Link to='/add-friend'>Add Friend</Link>
-        <Link to='/delete-friend'>Delete Friend</Link>
+        <Link to='/login'>Login</Link><br/>
+        <Link to='/friends-list'>Friends List</Link><br/>
+        <Link to='/update-friend'>Update Friend</Link><br/>
+        <Link to='/add-friend'>Add Friend</Link><br/>
+        <Link to='/delete-friend'>Delete Friend</Link><br/>
 
         <Switch>
           <PrivateRoute exact path='/friends-list' component={FriendsList} />
