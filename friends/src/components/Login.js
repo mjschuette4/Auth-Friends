@@ -16,7 +16,8 @@ class Login extends React.Component {
 
     //updates changes made to state
     handleChange = event => {
-        this.setState( { credentials: {
+        this.setState({
+             credentials: {
             ...this.state.credentials,
             [event.target.name]: event.target.value
         }})
@@ -28,12 +29,13 @@ class Login extends React.Component {
         event.preventDefault();
         this.setState({...this.state, isLoading: true});
         //grabbed post from server.js
-        axiosWithAuth().post('/api/login', this.state.credentials)
-        .then(res => {
-            console.log(res);
-            window.localStorage.setItem('token', res.data.payload);
-            this.setState({...this.state, isLoading: false});
-            this.props.history.push('/protected')
+        axiosWithAuth()
+            .post('/api/login', this.state.credentials)
+            .then(res => {
+                console.log(res);
+                localStorage.setItem('token', res.data.payload);
+                this.setState({...this.state, isLoading: false});
+                this.props.history.push('/protected')
         })
         .catch(err => console.log(err))
     }
